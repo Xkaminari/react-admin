@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "./ThemeContext";
+import Analytics from "./sceans/Analytics/Analytics";
+import Sidebar from "./sceans/global/Sidebar";
+import Topbar from "./sceans/global/Topbar";
+import { Routes, Route } from "react-router-dom";
+import "./index.css"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Topbar />
+      <Sidebar />
+      <div className="section_content">
+        <Routes>
+          <Route path="/" element={<Analytics/>}/>
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
 }
 
